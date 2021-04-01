@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--index view. displays table of bowlers. sends info in bottom div.-->
+
+@model IndexViewModel
+
+<h3>@Model.TeamCategory</h3>
+
+<table class="table table-striped table-bordered table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Middle Initial</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model.Bowlers)
+    {
+<tr>
+    <th>@x.BowlerFirstName</th>
+    <th>@x.BowlerMiddleInit</th>
+    <th>@x.BowlerLastName</th>
+    <th>@x.BowlerAddress</th>
+    <th>@x.BowlerCity</th>
+    <th>@x.BowlerState</th>
+    <th>@x.BowlerZip</th>
+    <th>@x.BowlerPhoneNumber</th>
+</tr>
+
+    }
+</table>
+
+<div page-info ="@Model.PageNumberingInfo" page-url-team-category="@Model.TeamCategory" page-classes-enabled="true" 
+     page-class="btn" page-class-normal="btn-outline-dark" page-classes-selected="btn-primary" class="btn-group"></div>
+

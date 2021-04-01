@@ -1,0 +1,25 @@
+﻿
+<!--displays the list of teams and home button to display all teams-->
+
+@using Assignment10_Bowling.Models.ViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model IEnumerable<Teams>
+
+<a asp-action="Index" asp-controller="Home" asp-route-teamnameid="" class="btn btn-block btn-dark">Home</a>
+<br />
+
+
+@foreach (var x in Model)
+{
+        <a class="btn btn-block 
+           @(x.TeamName == ViewBag.SelectedTeam ? "btn-primary" : "btn-outline-secondary")"
+           asp-action="Index" asp-controller="Home"
+           asp-route-teamnameid="@x.TeamId"
+           asp-route-teamname="@x.TeamName">
+            @x.TeamName
+        </a>
+
+
+    <br />
+}
